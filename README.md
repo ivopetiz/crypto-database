@@ -54,15 +54,26 @@ GRANT ALL PRIVILEGES TO <username>
 
 ## Market prices to DB
 
-Before build crypto markets and balance applications is necessary to configure Influxdb user, password and server on system. One option is to define variables on system in order to hide it from git. Variables can also be defined on **consts.go**.
+Before build crypto markets and balance applications is necessary to clone this repository.
 
-By default, data is recorded every 10 seconds but this value can be changed. Timeout can be defined on **consts.go**. A timeout too big won't present fast changes on prices. By the other hand, a timeout too small will make your IP address blocked on crypto exchanges, that only allows a certain number of request per minute. All exchanges have different limits and you can consult these values on exchanges API official websites.
+```bash
+git clone https://github.com/ivopetiz/crypto-database.git
+```
+
+ After cloning this rep, is necessary to configure Influxdb user, password and server on system. One option is to define variables on system in order to hide it from git. Variables can also be defined on **consts.go**.
 
 ```bash
 DBUSER=<your-db-user>
 DBPASS=<your-db-password>
 SERVERDB=<your-db-server>
 ```
+
+---
+### Data interval
+
+*By default, data is recorded every 10 seconds but this value can be changed. Timeout can be defined on **consts.go**. A timeout too big won't present fast changes on prices. By the other hand, a timeout too small will make your IP address blocked on crypto exchanges, that only allows a certain number of request per minute. All exchanges have different limits and you can consult these values on exchanges API official websites.*
+
+---
 
 Log file will be stored on **/log/altdb_coin.log**. This path can be changed on **main.go**. Make sure you have the right privileges to write in **/log/**.
 
@@ -72,6 +83,8 @@ sudo touch /log/altdb_coin.log
 sudo chown <user>:<user> /log/altdb_coin.log
 sudo chmod 644 /log/altdb_coin.log
 ```
+
+Compile market data getter executable.
 
 ```bash
 cd market
