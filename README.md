@@ -157,7 +157,7 @@ Chronograf presents crypto data from Influxdb. Can be particularly useful to plo
 In order to start service, after installation will need to run:
 
 ```bash
-sudo systemcrl start chronograf.service
+sudo systemctl start chronograf.service
 ```
 
 If you use Influxdb in the same machine as Chronograf service and have used the default configs, Influxdb will be in https://localhost:8086.
