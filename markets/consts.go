@@ -1,5 +1,8 @@
 package main
 
+import "os"
+import "time"
+
 const (
 	markets_DB  = "altcoin"
 	count       = 10
@@ -12,7 +15,7 @@ const (
 var (
 	// EXCHANGES
 	_poloniex  = false
-	_binance   = false
+	_binance   = true
 	_bittrex   = true
 	_cryptopia = true
 

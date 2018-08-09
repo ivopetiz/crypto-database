@@ -87,7 +87,7 @@ sudo chmod 644 /log/altdb_coin.log
 Compile market data getter executable.
 
 ```bash
-cd market
+cd markets
 go build -o markets -ldflags="-s -w" main.go consts.go
 ```
 
