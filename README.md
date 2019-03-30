@@ -50,6 +50,7 @@ Create databases and user with privileges to use databases:
 ```influx
 CREATE DATABASE altcoin
 CREATE DATABASE balance
+USE altcoin
 CREATE USER <username> WITH PASSWORD '<password>' WITH ALL PRIVILEGES
 GRANT ALL PRIVILEGES TO <username>
 ```
