@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 	"time"
-
-	"github.com/influxdata/influxdb/client/v2"
+	
+	"github.com/ivopetiz/influxdb/client/v2"
 	"github.com/ivopetiz/go-binance/binance"
 	"github.com/jyap808/go-bittrex"
 	"github.com/jyap808/go-cryptopia"
