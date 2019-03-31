@@ -9,9 +9,22 @@ Can be used for technical analysis, bots, backtest, realtime trading, etc.
 
 # Installation
 
+<!---    - [Docker](###docker)"-->
+ - [BD instalation](##bd-installation)
+     - [Native](###native)
+ - [Market prices to DB](##market-prices-to-db)
+     - [Data interval](###data-interval)
+ - [Balance to DB](##balance-to-db)
+ - [Using Chronograf](##using-chronograf)
+ - [TODO](##todo)
+
 This install guide was made for **Ubuntu 16.04+**. Will need some adjustments to work with other distros.
 
+---
 ## BD installation
+
+<!--### Docker-->
+### Native
 
 Start by installing Golang, to build the applications responsible for populate Crypto-database.
 
@@ -35,7 +48,7 @@ wget https://dl.influxdata.com/chronograf/releases/chronograf_1.5.0.0_amd64.deb
 sudo dpkg -i chronograf_1.5.0.0_amd64.deb
 ```
 
-## BD Configuration
+#### BD Configuration
 
 Start Influxdb and then run Influxdb prompt.
 
@@ -182,8 +195,9 @@ PORT=8888
 
 **HOST** will define who can access Chronograf website. It can be blocked to localhost machine or other specific IP address which can be a good option in terms of security.
 
-# TODO
+---
+## TODO
 
-- Dockerfile
+- dockerfile
 - add more exchanges to Balance
 - makefile
