@@ -12,6 +12,7 @@ Can be used for technical analysis, bots, backtest, realtime trading, etc.
 <!---    - [Docker](###docker)"-->
  - [BD instalation](##bd-installation)
      - [Native](###native)
+        - [BD Configuration](#BD-Configuration)
  - [Market prices to DB](##market-prices-to-db)
      - [Data interval](###data-interval)
  - [Balance to DB](##balance-to-db)
@@ -24,6 +25,7 @@ This install guide was made for **Ubuntu 16.04+**. Will need some adjustments to
 ## BD installation
 
 <!--### Docker-->
+
 ### Native
 
 Start by installing Golang, to build the applications responsible for populate Crypto-database.

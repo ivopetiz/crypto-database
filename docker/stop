@@ -1,0 +1,4 @@
+#! /bin/bash
+
+docker stop influxdb_crypto
+docker rm influxdb_crypto
