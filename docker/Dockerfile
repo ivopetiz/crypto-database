@@ -5,15 +5,15 @@ ENV INFLUXDB_VERSION 1.6.0
 
 # Prevent some error messages
 ENV DEBIAN_FRONTEND noninteractive
-RUN	apt-get -y update && apt-get -y upgrade && apt-get install -y --no-install-recommends apt-utils
 
+# Install all prerequisites
+RUN	apt-get -y update && apt-get install -y apt-utils wget supervisor curl apt-utils \
+	&& apt-get -y clean \
+	&& rm -rf /var/lib/apt/lists/*
 
 # ---------------- #
 #   Installation   #
 # ---------------- #
-
-# Install all prerequisites
-RUN apt-get -y install wget supervisor curl
 
 # Install Grafana to /src/grafana
 #RUN		mkdir -p src/grafana && cd src/grafana && \
@@ -29,8 +29,8 @@ RUN	wget -nv https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VER
 # ----------------- #
 
 # Configure InfluxDB
-ADD influxdb/config.toml /etc/influxdb/config.toml
-ADD influxdb/run.sh /usr/local/bin/run_influxdb
+COPY influxdb/config.toml /etc/influxdb/config.toml
+COPY influxdb/run.sh /usr/local/bin/run_influxdb
 # These two databases have to be created. These variables are used by set_influxdb.sh and set_grafana.sh
 ENV PRE_CREATE_DB altcoin
 ENV INFLUXDB_HOST localhost:8086
@@ -48,15 +48,13 @@ ENV ROOT_PW root
 #ADD		./set_influxdb.sh /set_influxdb.sh
 #RUN     /configure.sh
 #
-ADD		./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # ----------- #
 #   Cleanup   #
 # ----------- #
 
-RUN	apt-get autoremove -y wget curl && \
-		apt-get -y clean && \
-		rm -rf /var/lib/apt/lists/*
+RUN	apt-get autoremove -y wget curl
 #
 # ---------------- #
 #   Expose Ports   #

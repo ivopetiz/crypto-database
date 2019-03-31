@@ -9,20 +9,25 @@ Can be used for technical analysis, bots, backtest, realtime trading, etc.
 
 # Installation
 
- - [BD instalation](#bd-installation)
-     - [Docker](##docker)
-     - [Native](##native)
+- [BD Instalation](#bd-installation)
+    - [Docker](##docker)
+
+    - [Native](##native)
         - [BD Configuration](#BD-Configuration)
- - [Market prices to DB](#market-prices-to-db)
-     - [Data interval](##data-interval)
- - [Balance to DB](#balance-to-db)
- - [Using Chronograf](#using-chronograf)
- - [TODO](#todo)
+
+- [Market Prices To DB](#market-prices-to-db)
+    - [Data Interval](##data-interval)
+
+- [Balance To DB](#balance-to-db)
+
+- [Using Chronograf](#using-chronograf)
+
+- [TODO](#todo)
 
 This install guide was made for **Ubuntu 16.04+**. Will need some adjustments to work with other distros.
 
 
-# BD installation
+# BD Installation
 
 ## Docker
 
@@ -81,7 +86,7 @@ CREATE USER <username> WITH PASSWORD '<password>' WITH ALL PRIVILEGES
 GRANT ALL PRIVILEGES TO <username>
 ```
 
-# Market prices to DB
+# Market Prices To DB
 
 Before build crypto markets and balance applications is necessary to clone this repository.
 
@@ -98,7 +103,7 @@ SERVERDB=<your-db-server>
 ```
 
 ---
-## Data interval
+## Data Interval
 
 *By default, data is recorded every 10 seconds but this value can be changed. Timeout can be defined on **consts.go**. A timeout too big won't present fast changes on prices. By the other hand, a timeout too small will make your IP address blocked on crypto exchanges, that only allows a certain number of request per minute. All exchanges have different limits and you can consult these values on exchanges API official websites.*
 
@@ -149,7 +154,7 @@ sudo systemctl start cryptomarket.service
 
 Now **markets** will run as a service, starting when OS initializes and recovers in case of failure.
 
-# Balance to DB
+# Balance To DB
 
 If you want to add your balance to DB, you will need to generate your API key on crypto exchanges, in order to validate your login and get your data. Currently working only with Bittrex exchange.
 
