@@ -7,7 +7,8 @@ ENV INFLUXDB_VERSION 1.6.0
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install all prerequisites
-RUN	apt-get -y update && apt-get install -y apt-utils wget supervisor curl apt-utils \
+RUN	apt-get -y update && apt-get install -y --no-install-recommends \
+	apt-utils wget supervisor curl apt-utils \
 	&& apt-get -y clean \
 	&& rm -rf /var/lib/apt/lists/*
 
