@@ -9,23 +9,22 @@ Can be used for technical analysis, bots, backtest, realtime trading, etc.
 
 # Installation
 
-- [BD Instalation](#bd-installation)
-    - [Docker](##docker)
+-   [BD Instalation](#bd-installation)
+    -   [Docker](##docker)
 
-    - [Native](##native)
-        - [BD Configuration](#BD-Configuration)
+    -   [Native](##native)
+        -   [BD Configuration](#BD-Configuration)
 
-- [Market Prices To DB](#market-prices-to-db)
-    - [Data Interval](##data-interval)
+-   [Market Prices To DB](#market-prices-to-db)
+    -   [Data Interval](##data-interval)
 
-- [Balance To DB](#balance-to-db)
+-   [Balance To DB](#balance-to-db)
 
-- [Using Chronograf](#using-chronograf)
+-   [Using Chronograf](#using-chronograf)
 
-- [TODO](#todo)
+-   [TODO](#todo)
 
 This install guide was made for **Ubuntu 16.04+**. Will need some adjustments to work with other distros.
-
 
 # BD Installation
 
@@ -216,5 +215,5 @@ PORT=8888
 ---
 # TODO
 
-- add more exchanges to Balance
-- makefile
+-   add more exchanges to Balance
+-   makefile
