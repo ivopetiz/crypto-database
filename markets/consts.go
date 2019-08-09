@@ -4,10 +4,10 @@ import "os"
 import "time"
 
 const (
-	markets_DB = "altcoin"
-	count      = 10
-	apiKey     = ""
-	apiPass    = ""
+	marketsDB = "altcoin"
+	count     = 10
+	apiKey    = ""
+	apiPass   = ""
 
 	interval = 10 * time.Second
 )

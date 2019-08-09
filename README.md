@@ -1,4 +1,3 @@
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9243d193bbe34717978b72b0477df4d2)](https://app.codacy.com/app/ivopetiz/crypto-database?utm_source=github.com&utm_medium=referral&utm_content=ivopetiz/crypto-database&utm_campaign=Badge_Grade_Dashboard)
 
 # Crypto-database
@@ -7,8 +6,8 @@ Database to store all data from crypto exchanges, currently working with Binance
 
 Can be used for technical analysis, bots, backtest, realtime trading, etc.
 
-Installation
-===
+## Installation
+
 
 -   [BD Instalation](#bd-installation)
     -   [Docker](##docker)

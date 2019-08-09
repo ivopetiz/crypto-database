@@ -55,7 +55,7 @@ func main() {
 	}
 
 	for true {
-		start_time := time.Now()
+		startTime := time.Now()
 
 		// Create a new point batch
 		bp, err := client.NewBatchPoints(client.BatchPointsConfig{
@@ -198,7 +198,7 @@ func main() {
 			log.Println(err)
 		}
 
-		elapsed := time.Since(start_time)
+		elapsed := time.Since(startTime)
 		if elapsed < interval {
 			time.Sleep(interval - elapsed)
 
