@@ -1,13 +1,14 @@
-Crypto-database
-===
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9243d193bbe34717978b72b0477df4d2)](https://app.codacy.com/app/ivopetiz/crypto-database?utm_source=github.com&utm_medium=referral&utm_content=ivopetiz/crypto-database&utm_campaign=Badge_Grade_Dashboard)
+
+# Crypto-database
 
 Database to store all data from crypto exchanges, currently working with Binance, Bittrex, Cryptopia and Poloniex. 
 
 Can be used for technical analysis, bots, backtest, realtime trading, etc.
 
-# Installation
+Installation
+===
 
 -   [BD Instalation](#bd-installation)
     -   [Docker](##docker)
@@ -26,9 +27,9 @@ Can be used for technical analysis, bots, backtest, realtime trading, etc.
 
 This install guide was made for **Ubuntu 16.04+**. Will need some adjustments to work with other distros.
 
-# BD Installation
+## BD Installation
 
-## Docker
+### Docker
 
 Docker directory has a default configuration that allows users to implement an pre configured database, ready to receive data from Exchanges and use it.
 In order to use Influxdb Docker container is only necessary to follow the steps bellow.
@@ -41,7 +42,7 @@ cd crypto-database
 ```
 And your Influxdb crypto database throw Docker container should be ready to be used.
 
-## Native
+### Native
 
 Start by installing Golang, to build the applications responsible for populate Crypto-database.
 
@@ -85,7 +86,7 @@ CREATE USER <username> WITH PASSWORD '<password>' WITH ALL PRIVILEGES
 GRANT ALL PRIVILEGES TO <username>
 ```
 
-# Market Prices To DB
+## Market Prices To DB
 
 Before build crypto markets and balance applications is necessary to clone this repository.
 
@@ -102,7 +103,7 @@ SERVERDB=<your-db-server>
 ```
 
 ---
-## Data Interval
+### Data Interval
 
 *By default, data is recorded every 10 seconds but this value can be changed. Timeout can be defined on **consts.go**. A timeout too big won't present fast changes on prices. By the other hand, a timeout too small will make your IP address blocked on crypto exchanges, that only allows a certain number of request per minute. All exchanges have different limits and you can consult these values on exchanges API official websites.*
 
@@ -153,7 +154,7 @@ sudo systemctl start cryptomarket.service
 
 Now **markets** will run as a service, starting when OS initializes and recovers in case of failure.
 
-# Balance To DB
+## Balance To DB
 
 If you want to add your balance to DB, you will need to generate your API key on crypto exchanges, in order to validate your login and get your data. Currently working only with Bittrex exchange.
 
@@ -183,7 +184,7 @@ To add new balance info to DB every hour, add a crontab rule by running **cronta
 
 The above rule will run **balance** every hour at :00.
 
-# Using Chronograf
+## Using Chronograf
 
 Chronograf presents crypto data from Influxdb. Can be particularly useful to plot data or to quick check market prices. Chronograf is easy to use and it's only necessary to configure with your Influxdb definitions.
 
@@ -213,7 +214,7 @@ PORT=8888
 **HOST** will define who can access Chronograf website. It can be blocked to localhost machine or other specific IP address which can be a good option in terms of security.
 
 ---
-# TODO
+## TODO
 
 -   add more exchanges to Balance
 -   makefile
