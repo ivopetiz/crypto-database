@@ -4,27 +4,27 @@ import "os"
 import "time"
 
 const (
-	markets_DB  = "altcoin"
-	count       = 10
-	API_KEY     = ""
-	API_SECRET  = ""
+	markets_DB = "altcoin"
+	count      = 10
+	apiKey     = ""
+	apiPass    = ""
 
 	interval = 10 * time.Second
 )
 
 var (
 	// EXCHANGES
-	_poloniex  = false
-	_binance   = true
-	_bittrex   = true
-	_cryptopia = true
+	vPoloniex  = false
+	vBinance   = true
+	vBittrex   = true
+	vCryptopia = true
 
 	// MARKETS
-	_BTC  = true
-	_USDT = true
-	
+	vBTC  = true
+	vUSDT = true
+
 	// LOGIN
-	username   = os.Getenv("DBUSER")
-	password   = os.Getenv("DBPASS")
-	server_url = os.Getenv("SERVERDB")
+	username  = os.Getenv("DBUSER")
+	password  = os.Getenv("DBPASS")
+	serverURL = os.Getenv("SERVERDB")
 )

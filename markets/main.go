@@ -4,9 +4,9 @@ import (
 	"log"
 	"os"
 	"time"
-	
-	"github.com/ivopetiz/influxdb/client/v2"
+
 	"github.com/ivopetiz/go-binance/binance"
+	"github.com/ivopetiz/influxdb/client/v2"
 	"github.com/jyap808/go-bittrex"
 	"github.com/jyap808/go-cryptopia"
 	"github.com/jyap808/go-poloniex"
@@ -32,20 +32,20 @@ func main() {
 	log.SetOutput(f)
 
 	// BITTREX
-	bittrex := bittrex.New(API_KEY, API_SECRET)
+	bittrex := bittrex.New(apiKey, apiPass)
 
 	// POLONIEX
-	poloniex := poloniex.New(API_KEY, API_SECRET)
+	poloniex := poloniex.New(apiKey, apiPass)
 
 	// CRYPTOPIA
-	cryptopia := cryptopia.New(API_KEY, API_SECRET)
+	cryptopia := cryptopia.New(apiKey, apiPass)
 
 	// BINANCE
-	binance := binance.New(API_KEY, API_SECRET)
+	binance := binance.New(apiKey, apiPass)
 
 	// Create a new HTTPClient
 	c, err := client.NewHTTPClient(client.HTTPConfig{
-		Addr:     server_url,
+		Addr: serverURL,
 		//Addr:	  "http://localhost:8086",
 		Username: username,
 		Password: password,
@@ -67,7 +67,7 @@ func main() {
 		}
 
 		// BINANCE PART
-		if _binance {
+		if vBinance {
 			marketSummaries, err := binance.GetAll24Hr()
 			if err != nil {
 				log.Println(err)
@@ -95,7 +95,7 @@ func main() {
 		}
 
 		// BITTREX PART
-		if _bittrex {
+		if vBittrex {
 			marketSummaries, err := bittrex.GetMarketSummaries()
 			if err != nil {
 				log.Println(err)
@@ -125,7 +125,7 @@ func main() {
 		}
 
 		// POLONIEX PART
-		if _poloniex {
+		if vPoloniex {
 			tickers, err := poloniex.GetTickers()
 			if err != nil {
 				log.Println(err)
@@ -155,7 +155,7 @@ func main() {
 		}
 
 		// CRYPTOPIA PART
-		if _cryptopia {
+		if vCryptopia {
 			markets, err := cryptopia.GetMarkets()
 			if err != nil {
 				log.Println(err)
