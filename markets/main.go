@@ -10,7 +10,15 @@ import (
 	"github.com/jyap808/go-bittrex"
 	"github.com/jyap808/go-cryptopia"
 	"github.com/jyap808/go-poloniex"
+	"github.com/shopspring/decimal"
 )
+
+func decimalToFloat(val decimal.Decimal) float64 {
+        var valFloat float64
+        valFloat, _ = val.Float64()
+
+        return valFloat
+}
 
 func main() {
 	//create your file with desired read/write permissions
@@ -96,16 +104,16 @@ func main() {
 				// Create a point and add to batch
 				tags := map[string]string{"MarketName": coin.MarketName}
 				fields := map[string]interface{}{
-					"Ask":            coin.Ask,
-					"BaseVolume":     coin.BaseVolume,
-					"Bid":            coin.Bid,
-					"High":           coin.High,
-					"Last":           coin.Last,
-					"Low":            coin.Low,
+					"Ask":            decimalToFloat(coin.Ask),
+					"BaseVolume":     decimalToFloat(coin.BaseVolume),
+					"Bid":            decimalToFloat(coin.Bid),
+					"High":           decimalToFloat(coin.High),
+					"Last":           decimalToFloat(coin.Last),
+					"Low":            decimalToFloat(coin.Low),
 					"OpenBuyOrders":  float64(coin.OpenBuyOrders),
 					"OpenSellOrders": float64(coin.OpenSellOrders),
-					"PrevDay":        coin.PrevDay,
-					"Volume":         coin.Volume,
+					"PrevDay":        decimalToFloat(coin.PrevDay),
+					"Volume":         decimalToFloat(coin.Volume),
 				}
 				//log.Println(err, marketSummaries)
 				pt, err := client.NewPoint("bittrex", tags, fields, time.Now())
