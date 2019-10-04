@@ -121,6 +121,7 @@ Compile market data getter executable.
 
 ```bash
 cd markets
+go get
 go build -o markets -ldflags="-s -w" main.go consts.go
 ```
 
@@ -170,6 +171,7 @@ After define **API_KEY** and **API_SECRET** in **balance.go** is necessary to bu
 
 ```bash
 cd balance
+go get
 go build -o balance -ldflags="-s -w" balance.go
 ```
 
