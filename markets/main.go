@@ -10,15 +10,7 @@ import (
 	"github.com/jyap808/go-bittrex"
 	"github.com/jyap808/go-cryptopia"
 	"github.com/jyap808/go-poloniex"
-	"github.com/shopspring/decimal"
 )
-
-func decimalToFloat(val decimal.Decimal) float64 {
-	var valFloat float64
-	valFloat, _ = val.Float64()
-
-	return valFloat
-}
 
 func main() {
 	//create your file with desired read/write permissions
@@ -59,7 +51,7 @@ func main() {
 
 		// Create a new point batch
 		bp, err := client.NewBatchPoints(client.BatchPointsConfig{
-			Database:  markets_DB,
+			Database:  marketsDB,
 			Precision: "s",
 		})
 		if err != nil {
@@ -134,16 +126,16 @@ func main() {
 				// Create a point and add to batch
 				tags := map[string]string{"MarketName": key}
 				fields := map[string]interface{}{
-					"Ask":        decimalToFloat(ticker.LowestAsk),
-					"BaseVolume": decimalToFloat(ticker.BaseVolume),
-					"Bid":        decimalToFloat(ticker.HighestBid),
-					"High":       decimalToFloat(ticker.High24Hr),
-					"Last":       decimalToFloat(ticker.Last),
-					"Low":        decimalToFloat(ticker.Low24Hr),
+					"Ask":        ticker.LowestAsk,
+					"BaseVolume": ticker.BaseVolume,
+					"Bid":        ticker.HighestBid,
+					"High":       ticker.High24Hr,
+					"Last":       ticker.Last,
+					"Low":        ticker.Low24Hr,
 					//"OpenBuyOrders": float64(ticker.OpenBuyOrders),
 					//"OpenSellOrders": float64(ticker.OpenSellOrders),
 					//"PrevDay": ticker.PrevDay,
-					"Volume": decimalToFloat(ticker.QuoteVolume),
+					"Volume": ticker.QuoteVolume,
 				}
 				//log.Println(err, marketSummaries)
 				pt, err := client.NewPoint("poloniex", tags, fields, time.Now())
